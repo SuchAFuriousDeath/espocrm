@@ -8,7 +8,19 @@
         "fields": {
             "type": "object",
             "additionalProperties": {
-                "$ref": "./entityDefs.json#/definitions/fieldDefs"
+                "allOf": [
+                    {
+                        "$ref": "./entityDefs.json#/definitions/fieldDefs"
+                    },
+                    {
+                        "properties": {
+                            "labelTranslation": {
+                                "type": "string",
+                                "description": "A translation path for the label. E.g. `MyIntegration.myField`."
+                            }
+                        }
+                    }
+                ]
             },
             "description": "Field definitions for the integration (to be available at Administration > Integrations)."
         },
